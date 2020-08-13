@@ -4,8 +4,8 @@
       <app-post-item v-for="post in posts"
                       :key="post.title"
                       :title="post.title"
-                      :short-description="post.shortDescription"
-                      :full-description="post.fullDescription"
+                      :summary="post.summary"
+                      :description="post.description"
                       :comments-count="post.comments.length"
                       :comments="post.comments"
       ></app-post-item>
@@ -25,8 +25,8 @@ export default {
     posts: [
       {
         title: 'Первая запись',
-        shortDescription: 'Короткое описание',
-        fullDescription: 'Полное описание',
+        summary: 'Короткое описание',
+        description: 'Полное описание',
         comments: [
           {
             text: 'Хороший комментарий',
@@ -38,8 +38,8 @@ export default {
       },
       {
         title: 'Вторая запись',
-        shortDescription: 'Короткое описание',
-        fullDescription: 'Полное описание',
+        summary: 'Короткое описание',
+        description: 'Полное описание',
         comments: [
           {
             text: 'Хороший комментарий',
@@ -48,9 +48,9 @@ export default {
             text: 'Плохой комментарий',
           },
         ],
-      }
-    ]
-  })
+      },
+    ],
+  }),
 }
 </script>
 

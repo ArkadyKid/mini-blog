@@ -11,22 +11,22 @@
                name="text"
         >
       </label>
-      <label class="form__short-description"
-             for="short-description"
+      <label class="form__summary"
+             for="summary"
       >
         Короткое описание
-        <input id="short-description"
+        <input id="summary"
                type="text"
-               name="short-description"
+               name="summary"
         >
       </label>
-      <label class="form__full-description"
-             for="full-description"
+      <label class="form__description"
+             for="description"
       >
         Полное описание
-        <input id="full-description"
+        <input id="description"
                type="text"
-               name="full-description"
+               name="description"
         >
       </label>
       <button class="form__submit"
@@ -52,8 +52,8 @@ export default {
 
 <style scoped lang="css">
   .form__title-label,
-  .form__short-description,
-  .form__full-description {
+  .form__summary,
+  .form__description {
     display: flex;
     flex-direction: column;
   }

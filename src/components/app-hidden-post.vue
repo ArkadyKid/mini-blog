@@ -1,7 +1,7 @@
 <template>
-  <div class="app-hidden-post hidden-post">
-    <p class="hidden-post__description">
-      {{ shortDescription }}
+  <div class="app__hidden-post hidden-post">
+    <p class="hidden-post__summary">
+      {{ summary }}
     </p>
     <span class="hidden-post__comments-count">
         {{ commentsCount }}
@@ -17,7 +17,7 @@ export default {
       type: String,
       default: '',
     },
-    shortDescription: {
+    summary: {
       type: String,
       default: '',
     },
