@@ -45,29 +45,29 @@ export default {
 </script>
 
 <style scoped lang="css">
-.comment-form {
-  padding: 10px 0;
-}
+  .comment-form {
+    padding: 10px 0;
+  }
 
-.comment-form__author,
-.comment-form__comment-text {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
+  .comment-form__author,
+  .comment-form__comment-text {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
 
-.comment-form__comment-text textarea {
-  resize: vertical;
-}
+  .comment-form__comment-text textarea {
+    resize: vertical;
+  }
 
-.comment-form__text {
-  margin-bottom: 5px;
-}
+  .comment-form__text {
+    margin-bottom: 5px;
+  }
 
-.comment-form__submit {
-  margin: 10px 0 0;
-  padding: 10px;
-  width: auto;
-  cursor: pointer;
-}
+  .comment-form__submit {
+    margin: 10px 0 0;
+    padding: 10px;
+    width: auto;
+    cursor: pointer;
+  }
 </style>

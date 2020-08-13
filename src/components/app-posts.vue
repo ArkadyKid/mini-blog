@@ -1,13 +1,13 @@
 <template>
   <div class="app__posts posts">
     <ul class="posts__list">
-      <app-post-item v-for="post in posts"
-                      :key="post.title"
-                      :title="post.title"
-                      :summary="post.summary"
-                      :description="post.description"
-                      :comments-count="post.comments.length"
-                      :comments="post.comments"
+      <app-post-item v-for="(post, index) in posts"
+                     :key="index"
+                     :title="post.title"
+                     :summary="post.summary"
+                     :description="post.description"
+                     :comments-count="getCommentsCount(index)"
+                     :comments="getComments(index)"
       ></app-post-item>
     </ul>
   </div>
@@ -22,42 +22,32 @@ export default {
     AppPostItem,
   },
   data: () => ({
-    posts: [
-      {
-        title: 'Первая запись',
-        summary: 'Короткое описание',
-        description: 'Полное описание',
-        comments: [
-          {
-            text: 'Хороший комментарий',
-          },
-          {
-            text: 'Плохой комментарий',
-          },
-        ],
-      },
-      {
-        title: 'Вторая запись',
-        summary: 'Короткое описание',
-        description: 'Полное описание',
-        comments: [
-          {
-            text: 'Хороший комментарий',
-          },
-          {
-            text: 'Плохой комментарий',
-          },
-        ],
-      },
-    ],
+    posts: [],
   }),
+  methods: {
+    getComments(index) {
+      return this.posts[index].comment ? this.posts[index].comment : [];
+    },
+    getCommentsCount(index) {
+      return this.getComments(index).length;
+    }
+  },
+  mounted() {
+    if (localStorage.getItem('posts')) {
+      try {
+        this.posts = JSON.parse(localStorage.getItem('posts'));
+      } catch (e) {
+        localStorage.removeItem('posts');
+      }
+    }
+  },
 }
 </script>
 
 <style scoped lang="css">
-.posts__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  .posts__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 </style>

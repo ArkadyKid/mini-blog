@@ -34,22 +34,22 @@ export default {
 </script>
 
 <style scoped lang="css">
-.comments-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  .comments-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-.comments-list__comment:not(:last-child) {
-  margin-bottom: 5px;
-}
+  .comments-list__comment:not(:last-child) {
+    margin-bottom: 5px;
+  }
 
-.comments-list__comment-delete {
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  background: transparent;
-  cursor: pointer;
-}
+  .comments-list__comment-delete {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    background: transparent;
+    cursor: pointer;
+  }
 </style>
