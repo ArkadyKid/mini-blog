@@ -1,32 +1,38 @@
 <template>
   <div class="app__post-editor post-editor">
     <form>
-      <label for="title-edit"
-             class="post-editor__title-edit"
+      <label class="post-editor__title-edit"
+             for="title-edit"
       >
-        Заголовок
+        <span class="post-editor__label-text">
+          Заголовок
+        </span>
         <input id="title-edit"
                type="text"
                name="title"
         >
       </label>
-      <label for="summary-edit"
-             class="post-editor__title-edit"
+      <label class="post-editor__summary-edit"
+             for="summary-edit"
       >
-        Краткое описание
+        <span class="post-editor__label-text">
+          Краткое описание
+        </span>
         <input id="summary-edit"
                name="summary"
                type="text"
         >
       </label>
-      <label for="description-edit"
-             class="post-editor__title-edit"
+      <label class="post-editor__description-edit"
+             for="description-edit"
       >
-        Полное описание
-        <input id="description-edit"
-               type="text"
-               name="description"
-        >
+        <span class="post-editor__label-text">
+          Полное описание
+        </span>
+        <textarea id="description-edit"
+                  type="text"
+                  name="description"
+        ></textarea>
       </label>
     </form>
     <app-comments-list :is-edit="isEdit"
@@ -37,6 +43,7 @@
 
 <script>
 import AppCommentsList from "@/components/app-comments-list";
+
 export default {
   name: 'app-post-editor',
   components: {
@@ -56,8 +63,24 @@ export default {
 </script>
 
 <style scoped lang="css">
-  .post-editor form {
-    display: flex;
-    flex-direction: column;
-  }
+.post-editor form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-editor__title-edit,
+.post-editor__summary-edit,
+.post-editor__description-edit {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.post-editor__label-text {
+  margin-bottom: 5px;
+}
+
+.post-editor__description-edit textarea {
+  resize: vertical;
+}
 </style>

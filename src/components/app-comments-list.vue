@@ -40,6 +40,10 @@ export default {
   list-style: none;
 }
 
+.comments-list__comment:not(:last-child) {
+  margin-bottom: 5px;
+}
+
 .comments-list__comment-delete {
   border: none;
   margin: 0;

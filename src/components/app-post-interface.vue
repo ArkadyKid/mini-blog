@@ -47,10 +47,8 @@ export default {
 .user-interface__edit-button,
 .user-interface__delete-button {
   margin: 0;
-  padding: 0;
+  padding: 10px;
   width: auto;
-  border: none;
-  background: transparent;
   cursor: pointer;
 }
 

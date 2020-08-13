@@ -80,7 +80,9 @@ export default {
 
 <style scoped lang="css">
   .post-item {
+    padding: 10px;
     margin-bottom: 40px;
+    border: 1px solid #000000;
   }
 
   .post-item__wrapper {
