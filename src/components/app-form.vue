@@ -49,6 +49,8 @@
 </template>
 
 <script>
+import service from '../services/service.js';
+
 export default {
   name: 'app-form',
   data: () => ({
@@ -58,43 +60,36 @@ export default {
   }),
   methods: {
     onSubmitClick() {
-      const postObject = {
-        title: this.title,
-        summary: this.summary,
-        description: this.description,
-      };
-      const localstorage = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
-      localstorage.push(postObject);
-      localStorage.setItem(`posts`, JSON.stringify(localstorage));
+      this.title && service.setFormToLocalStorage(this.title, this.summary, this.description);
       this.title = '';
-      this.description = '';
       this.summary = '';
+      this.description = '';
     },
   },
 }
 </script>
 
 <style scoped lang="css">
-  .form__title-label,
-  .form__summary,
-  .form__description {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
+.form__title-label,
+.form__summary,
+.form__description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
 
-  .form__submit {
-    margin: 0;
-    padding: 10px;
-    width: auto;
-    cursor: pointer;
-  }
+.form__submit {
+  margin: 0;
+  padding: 10px;
+  width: auto;
+  cursor: pointer;
+}
 
-  .form__description textarea {
-    resize: vertical;
-  }
+.form__description textarea {
+  resize: vertical;
+}
 
-  .form__label-text {
-    margin-bottom: 5px;
-  }
+.form__label-text {
+  margin-bottom: 5px;
+}
 </style>

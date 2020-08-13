@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import service from '@/services/service';
+
 import AppPostItem from '@/components/app-post-item';
 
 export default {
@@ -30,16 +32,11 @@ export default {
     },
     getCommentsCount(index) {
       return this.getComments(index).length;
-    }
+    },
   },
   mounted() {
-    if (localStorage.getItem('posts')) {
-      try {
-        this.posts = JSON.parse(localStorage.getItem('posts'));
-      } catch (e) {
-        localStorage.removeItem('posts');
-      }
-    }
+    service.getPostsFromLocalStorage();
+    this.posts = service.getPosts();
   },
 }
 </script>
