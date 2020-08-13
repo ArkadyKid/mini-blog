@@ -27,9 +27,8 @@ class service {
       description,
       comments: [],
     };
-    const newPosts = this.getPosts();
-    newPosts.push(postObject);
-    this.setPostsToLocalStorage(newPosts);
+    this.posts.push(postObject);
+    this.setPostsToLocalStorage(this.posts);
   }
 
   setCommentToLocalStorage(author, text, index) {

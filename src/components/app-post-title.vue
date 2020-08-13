@@ -29,12 +29,17 @@ export default {
 </script>
 
 <style scoped lang="css">
-  .post-title__button-title {
-    margin: 0;
-    padding: 0;
-    width: auto;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-  }
+.post-title__title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.post-title__button-title {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
 </style>

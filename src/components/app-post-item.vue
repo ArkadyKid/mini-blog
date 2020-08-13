@@ -26,11 +26,11 @@
                      :index="index"
                      @on-submit-click="onSubmitEditorClick"
     ></app-editor-post>
-    <app-comments-list :comments="comments"
-                       :is-edit="isEdit"
-                       :index="index"
-                       v-if="isOpen"
-    ></app-comments-list>
+    <app-comments :comments="comments"
+                  :is-edit="isEdit"
+                  :index="index"
+                  v-if="isOpen"
+    ></app-comments>
     <app-comment-form :index="index"
                       v-if="!isEdit && isOpen"
     ></app-comment-form>
@@ -43,7 +43,7 @@ import AppOpenedPost from '@/components/app-opened-post';
 import AppPostInterface from '@/components/app-post-interface';
 import AppEditorPost from '@/components/app-editor-post';
 import AppPostTitle from "@/components/app-post-title";
-import AppCommentsList from "@/components/app-comments-list";
+import AppComments from "@/components/app-comments";
 import AppCommentForm from "@/components/app-comment-form";
 
 export default {
@@ -54,7 +54,7 @@ export default {
   }),
   components: {
     AppCommentForm,
-    AppCommentsList,
+    AppComments,
     AppPostTitle,
     AppEditorPost,
     AppPostInterface,

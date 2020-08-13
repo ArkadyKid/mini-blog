@@ -1,8 +1,11 @@
 <template>
-  <div class="app__blog blog">
+  <section class="app__blog blog">
+    <h1 class="blog__title">
+      Блог
+    </h1>
     <app-posts></app-posts>
     <app-form ></app-form>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -4,8 +4,8 @@
       {{ summary }}
     </p>
     <span class="hidden-post__comments-count">
-        {{ commentsCount }}
-      </span>
+      {{ commentsCount }}
+    </span>
   </div>
 </template>
 
