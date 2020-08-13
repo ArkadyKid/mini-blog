@@ -6,6 +6,7 @@
                       @on-title-button-click="onTitleButtonClick"
       ></app-post-title>
       <app-post-interface class="post-item__post-interface"
+                          :index="index"
                           @on-edit-button-click="onEditButtonClick"
                           :is-edit="isEdit"
       ></app-post-interface>

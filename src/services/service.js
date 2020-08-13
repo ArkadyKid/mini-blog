@@ -33,6 +33,12 @@ class service {
     post.comments.push(commentObject);
     localStorage.setItem('posts', JSON.stringify(this.posts));
   }
+
+  delPost(index) {
+    this.posts.splice(index, 1);
+    console.log(this.posts);
+    localStorage.setItem('posts', JSON.stringify(this.posts));
+  }
 }
 
 export default new service();

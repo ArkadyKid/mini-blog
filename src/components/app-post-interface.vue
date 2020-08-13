@@ -9,6 +9,7 @@
       </button>
       <button class="user-interface__delete-button"
               type="button"
+              @click="onDeleteClick"
       >
         Удалить
       </button>
@@ -17,6 +18,8 @@
 </template>
 
 <script>
+import service from '@/services/service';
+
 export default {
   name: 'app-post-interface',
   props: {
@@ -24,10 +27,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    index: {
+      type: Number,
+    },
   },
   methods: {
     onEditClick() {
       this.$emit('on-edit-button-click');
+    },
+    onDeleteClick() {
+      service.delPost(this.index);
     },
   },
   computed: {
