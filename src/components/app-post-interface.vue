@@ -41,7 +41,7 @@ export default {
   },
   computed: {
     buttonText() {
-      return this.isEdit ? 'Сохранить' : 'Редактировать';
+      return this.isEdit ? 'Вернуться' : 'Редактировать';
     },
   },
 }

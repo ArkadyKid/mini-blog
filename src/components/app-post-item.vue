@@ -17,14 +17,22 @@
                      v-if="!isOpen && !isEdit"
     ></app-hidden-post>
     <app-opened-post :description="description"
-                     :comments="comments"
                      :index="index"
                      v-if="isOpen && !isEdit"
     ></app-opened-post>
-    <app-post-editor v-if="isEdit"
+    <app-editor-post v-if="isEdit"
                      :is-edit="isEdit"
                      :comments="comments"
-    ></app-post-editor>
+                     :index="index"
+                     @on-submit-click="onSubmitEditorClick"
+    ></app-editor-post>
+    <app-comments-list :comments="comments"
+                       :is-edit="isEdit"
+                       :index="index"
+    ></app-comments-list>
+    <app-comment-form :index="index"
+                      v-if="!isEdit"
+    ></app-comment-form>
   </li>
 </template>
 
@@ -32,8 +40,10 @@
 import AppHiddenPost from '@/components/app-hidden-post';
 import AppOpenedPost from '@/components/app-opened-post';
 import AppPostInterface from '@/components/app-post-interface';
-import AppPostEditor from '@/components/app-post-editor';
+import AppEditorPost from '@/components/app-editor-post';
 import AppPostTitle from "@/components/app-post-title";
+import AppCommentsList from "@/components/app-comments-list";
+import AppCommentForm from "@/components/app-comment-form";
 
 export default {
   name: 'app-post-item',
@@ -42,8 +52,10 @@ export default {
     isEdit: false,
   }),
   components: {
+    AppCommentForm,
+    AppCommentsList,
     AppPostTitle,
-    AppPostEditor,
+    AppEditorPost,
     AppPostInterface,
     AppOpenedPost,
     AppHiddenPost,
@@ -79,6 +91,9 @@ export default {
     },
     onEditButtonClick() {
       this.isEdit = !this.isEdit;
+    },
+    onSubmitEditorClick() {
+      this.isEdit = false;
     },
   }
 }

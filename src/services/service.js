@@ -7,9 +7,17 @@ class service {
     return this.posts;
   }
 
+  getPost(index) {
+    return this.posts[index];
+  }
+
   getPostsFromLocalStorage() {
     this.posts = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
     return this.posts;
+  }
+
+  setPostsToLocalStorage(posts) {
+    localStorage.setItem('posts', JSON.stringify(posts));
   }
 
   setFormToLocalStorage(title, summary, description) {
@@ -21,7 +29,7 @@ class service {
     };
     const newPosts = this.getPosts();
     newPosts.push(postObject);
-    localStorage.setItem('posts', JSON.stringify(newPosts));
+    this.setPostsToLocalStorage(newPosts);
   }
 
   setCommentToLocalStorage(author, text, index) {
@@ -31,13 +39,28 @@ class service {
     };
     const post = this.posts[index];
     post.comments.push(commentObject);
-    localStorage.setItem('posts', JSON.stringify(this.posts));
+    this.setPostsToLocalStorage(this.posts);
+  }
+
+  editPost(index, title, summary, description) {
+    this.posts[index] = {
+      title,
+      summary,
+      description,
+      comments: [],
+    };
+    this.setPostsToLocalStorage(this.posts);
   }
 
   delPost(index) {
     this.posts.splice(index, 1);
-    console.log(this.posts);
-    localStorage.setItem('posts', JSON.stringify(this.posts));
+    this.setPostsToLocalStorage(this.posts);
+  }
+
+  delComment(indexPost, indexComment) {
+    const comments = this.posts[indexPost].comments;
+    comments.splice(indexComment, 1);
+    this.setPostsToLocalStorage(this.posts);
   }
 }
 

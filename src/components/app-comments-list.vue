@@ -13,6 +13,7 @@
       <button class="comments-list__comment-delete"
               type="button"
               v-if="isEdit"
+              @click="onDelButtonClick(index)"
       >
         x
       </button>
@@ -21,6 +22,9 @@
 </template>
 
 <script>
+
+import service from '@/services/service';
+
 export default {
   name: 'app-comments-list',
   props: {
@@ -31,6 +35,14 @@ export default {
     isEdit: {
       type: Boolean,
       default: false,
+    },
+    index: {
+      type: Number,
+    }
+  },
+  methods: {
+    onDelButtonClick(indexComment) {
+      service.delComment(this.index, indexComment);
     },
   },
 }
