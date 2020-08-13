@@ -11,11 +11,13 @@
       ></app-post-interface>
     </div>
     <app-hidden-post :summary="summary"
+                     :index="index"
                      :comments-count="commentsCount"
                      v-if="!isOpen && !isEdit"
     ></app-hidden-post>
     <app-opened-post :description="description"
                      :comments="comments"
+                     :index="index"
                      v-if="isOpen && !isEdit"
     ></app-opened-post>
     <app-post-editor v-if="isEdit"
@@ -65,6 +67,9 @@ export default {
     comments: {
       type: Array,
       default: () => [],
+    },
+    index: {
+      type: Number,
     },
   },
   methods: {

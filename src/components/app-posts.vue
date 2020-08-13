@@ -8,6 +8,7 @@
                      :description="post.description"
                      :comments-count="getCommentsCount(index)"
                      :comments="getComments(index)"
+                     :index="index"
       ></app-post-item>
     </ul>
   </div>
@@ -28,7 +29,7 @@ export default {
   }),
   methods: {
     getComments(index) {
-      return this.posts[index].comment ? this.posts[index].comment : [];
+      return this.posts[index].comments ? this.posts[index].comments : [];
     },
     getCommentsCount(index) {
       return this.getComments(index).length;

@@ -4,7 +4,7 @@
       {{ description }}
     </p>
     <app-comments-list :comments="comments"></app-comments-list>
-    <app-comment-form></app-comment-form>
+    <app-comment-form :index="index"></app-comment-form>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
     comments: {
       type: Array,
       default: () => [],
+    },
+    index: {
+      type: Number,
     },
   },
 }

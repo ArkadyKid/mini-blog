@@ -10,6 +10,7 @@
         <input type="text"
                id="comment-author"
                name="comment-author"
+               v-model="author"
         >
       </label>
       <label for="comment-text"
@@ -21,6 +22,7 @@
         <textarea type="text"
                   id="comment-text"
                   name="comment-text"
+                  v-model="text"
         ></textarea>
       </label>
       <button class="comment-form__submit"
@@ -34,11 +36,24 @@
 </template>
 
 <script>
+import service from '@/services/service';
+
 export default {
   name: 'app-comment-form',
+  data: () => ({
+    author: '',
+    text: '',
+  }),
+  props: {
+    index: {
+      type: Number,
+    },
+  },
   methods: {
     onSubmitClick() {
-      console.log(1);
+      this.text && service.setCommentToLocalStorage(this.author, this.text, this.index);
+      this.author = '';
+      this.text = '';
     }
   }
 }

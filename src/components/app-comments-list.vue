@@ -1,9 +1,12 @@
 <template>
   <ul class="app__comments-list comments-list">
     <li class="comments-list__comment"
-        v-for="comment in comments"
-        :key="comment.text"
+        v-for="(comment, index) in comments"
+        :key="index"
     >
+        <span class="comments-list__comment-author">
+          {{ comment.author }}
+        </span>
         <span class="comments-list__comment-text">
           {{ comment.text }}
         </span>

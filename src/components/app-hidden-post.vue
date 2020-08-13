@@ -25,6 +25,10 @@ export default {
       type: Number,
       default: 0,
     },
+    index: {
+      type: Number,
+      default: 0,
+    },
   },
 }
 </script>
