@@ -42,13 +42,10 @@ class service {
     this.setPostsToLocalStorage(this.posts);
   }
 
-  editPost(index, title, summary, description) {
-    this.posts[index] = {
-      title,
-      summary,
-      description,
-      comments: [],
-    };
+  editPost(index, newTitle, newSummary, newDescription) {
+    this.posts[index].title = newTitle;
+    this.posts[index].summary = newSummary;
+    this.posts[index].description = newDescription;
     this.setPostsToLocalStorage(this.posts);
   }
 
