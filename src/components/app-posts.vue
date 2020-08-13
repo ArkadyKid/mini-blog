@@ -1,28 +1,28 @@
 <template>
-  <div class="app__entries entries">
-    <ul class="entries__list">
-      <app-entry-item v-for="entry in entries"
-                      :key="entry.title"
-                      :title="entry.title"
-                      :short-description="entry.shortDescription"
-                      :full-description="entry.fullDescription"
-                      :comments-count="entry.comments.length"
-                      :comments="entry.comments"
-      ></app-entry-item>
+  <div class="app__posts posts">
+    <ul class="posts__list">
+      <app-post-item v-for="post in posts"
+                      :key="post.title"
+                      :title="post.title"
+                      :short-description="post.shortDescription"
+                      :full-description="post.fullDescription"
+                      :comments-count="post.comments.length"
+                      :comments="post.comments"
+      ></app-post-item>
     </ul>
   </div>
 </template>
 
 <script>
-import AppEntryItem from '@/components/app-entry-item';
+import AppPostItem from '@/components/app-post-item';
 
 export default {
-  name: 'app-entries',
+  name: 'app-posts',
   components: {
-    AppEntryItem,
+    AppPostItem,
   },
   data: () => ({
-    entries: [
+    posts: [
       {
         title: 'Первая запись',
         shortDescription: 'Короткое описание',
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style scoped lang="css">
-.entries__list {
+.posts__list {
   margin: 0;
   padding: 0;
   list-style: none;

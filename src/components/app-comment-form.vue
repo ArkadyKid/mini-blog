@@ -20,7 +20,7 @@
         >
       </label>
       <button class="comment-form__submit"
-              @click.prevent="onClickSubmit"
+              @click.prevent="onSubmitClick"
               type="submit"
       >
         Опубликовать
@@ -33,7 +33,7 @@
 export default {
   name: 'app-comment-form',
   methods: {
-    onClickSubmit() {
+    onSubmitClick() {
       console.log(1);
     }
   }
@@ -48,10 +48,5 @@ export default {
     width: auto;
     background: transparent;
     cursor: pointer;
-  }
-
-  .comment-form__submit:focus,
-  .comment-form__submit:active {
-    border: none;
   }
 </style>

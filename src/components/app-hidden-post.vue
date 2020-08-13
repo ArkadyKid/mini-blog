@@ -1,9 +1,9 @@
 <template>
-  <div class="app-hidden-entry hidden-entry">
-    <p class="hidden-entry__description">
+  <div class="app-hidden-post hidden-post">
+    <p class="hidden-post__description">
       {{ shortDescription }}
     </p>
-    <span class="hidden-entry__comments-count">
+    <span class="hidden-post__comments-count">
         {{ commentsCount }}
       </span>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'app-hidden-entry',
+  name: 'app-hidden-post',
   props: {
     title: {
       type: String,

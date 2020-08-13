@@ -1,19 +1,19 @@
 <template>
   <div class="app__blog blog">
-    <app-entries></app-entries>
+    <app-posts></app-posts>
     <app-form></app-form>
   </div>
 </template>
 
 <script>
-import AppEntries from '@/components/app-entries';
+import AppPosts from '@/components/app-posts';
 import AppForm from '@/components/app-form';
 
 export default {
   name: 'app-blog',
   components: {
     AppForm,
-    AppEntries,
+    AppPosts,
   },
 }
 </script>

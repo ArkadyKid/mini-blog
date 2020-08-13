@@ -5,14 +5,12 @@
               type="button"
               @click="onTitleButtonClick"
       >
-        <span class="user-interface__title"
-              v-if="!isTitleEdit"
-        >
+        <span class="user-interface__title">
           {{ title }}
         </span>
       </button>
       <label class="user-interface__title-edit"
-             v-if="isTitleEdit"
+             v-if="false"
              for="title-edit"
       >
         <input type="text"
@@ -20,12 +18,6 @@
                v-model="title"
         >
       </label>
-      <button class="user-interface__edit"
-              type="button"
-              @click="onEditTitleClick"
-      >
-        {{ editTitleButtonText }}
-      </button>
     </div>
     <div class="user-interface__wrapper">
       <button class="user-interface__edit-button"
@@ -44,10 +36,7 @@
 
 <script>
 export default {
-  name: 'app-entry-interface',
-  data: () => ({
-    isTitleEdit: false,
-  }),
+  name: 'app-post-interface',
   props: {
     title: {
       type: String,
@@ -58,15 +47,7 @@ export default {
     onTitleButtonClick() {
       this.$emit('on-title-button-click');
     },
-    onEditTitleClick() {
-      this.isTitleEdit = !this.isTitleEdit;
-    },
   },
-  computed: {
-    editTitleButtonText() {
-      return this.isTitleEdit ? 'Сохранить изменения' : 'Редактировать заголовок';
-    }
-  }
 }
 </script>
 

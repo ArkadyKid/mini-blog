@@ -1,17 +1,17 @@
 <template>
-  <div class="app-opened-entry opened-entry">
-    <p class="opened-entry__full-description">
+  <div class="app-opened-post opened-post">
+    <p class="opened-post__full-description">
       {{ fullDescription }}
     </p>
-    <ul class="opened-entry__comments-list">
-      <li class="opened-entry__comment"
+    <ul class="opened-post__comments-list">
+      <li class="opened-post__comment"
           v-for="comment in comments"
           :key="comment.text"
       >
-        <span class="opened-entry__text">
+        <span class="opened-post__text">
           {{ comment.text }}
         </span>
-        <button class="opened-entry__comment-delete"
+        <button class="opened-post__comment-delete"
                 type="button"
                 v-if="false"
         >
@@ -27,7 +27,7 @@
 import AppCommentForm from '@/components/app-comment-form';
 
 export default {
-  name: 'app-opened-entry',
+  name: 'app-opened-post',
   components: {
     AppCommentForm
   },
@@ -51,13 +51,13 @@ export default {
 </script>
 
 <style scoped lang="css">
-  .opened-entry__comments-list {
+  .opened-post__comments-list {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .opened-entry__comment-delete {
+  .opened-post__comment-delete {
     border: none;
     margin: 0;
     padding: 0;

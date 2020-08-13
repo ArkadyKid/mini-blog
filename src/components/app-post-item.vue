@@ -1,33 +1,33 @@
 <template>
-  <li class="app__entry-item entry-item">
-    <app-entry-interface :title="title"
+  <div class="app__post-item post-item">
+    <app-post-interface :title="title"
                          @on-title-button-click="onTitleButtonClick"
-    ></app-entry-interface>
-    <app-hidden-entry :short-description="shortDescription"
+    ></app-post-interface>
+    <app-hidden-post :short-description="shortDescription"
                       :comments-count="commentsCount"
                       v-if="!isOpen"
-    ></app-hidden-entry>
-    <app-opened-entry :full-description="fullDescription"
+    ></app-hidden-post>
+    <app-opened-post :full-description="fullDescription"
                       :comments="comments"
                       v-if="isOpen"
-    ></app-opened-entry>
-  </li>
+    ></app-opened-post>
+  </div>
 </template>
 
 <script>
-import AppHiddenEntry from '@/components/app-hidden-entry';
-import AppOpenedEntry from '@/components/app-opened-entry';
-import AppEntryInterface from "@/components/app-entry-interface";
+import AppHiddenPost from '@/components/app-hidden-post';
+import AppOpenedPost from '@/components/app-opened-post';
+import AppPostInterface from "@/components/app-post-interface";
 
 export default {
-  name: 'app-entry-item',
+  name: 'app-post-item',
   data: () => ({
     isOpen: false,
   }),
   components: {
-    AppEntryInterface,
-    AppOpenedEntry,
-    AppHiddenEntry,
+    AppPostInterface,
+    AppOpenedPost,
+    AppHiddenPost,
   },
   props: {
     title: {
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style scoped lang="css">
-  .entry-item {
+  .post-item {
     margin-bottom: 40px;
   }
 </style>
