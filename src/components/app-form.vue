@@ -11,6 +11,7 @@
                id="title"
                type="text"
                name="title"
+               maxlength="15"
                v-model="title"
         >
       </label>
@@ -23,6 +24,7 @@
         <input id="summary"
                type="text"
                name="summary"
+               maxlength="30"
                v-model="summary"
         >
       </label>
@@ -35,6 +37,7 @@
         <textarea id="description"
                   type="text"
                   name="description"
+                  maxlength="60"
                   v-model="description"
         ></textarea>
       </label>

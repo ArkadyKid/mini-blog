@@ -11,6 +11,7 @@
                id="comment-author"
                name="comment-author"
                v-model="author"
+               maxlength="15"
         >
       </label>
       <label for="comment-text"
@@ -23,6 +24,7 @@
                   id="comment-text"
                   name="comment-text"
                   v-model="text"
+                  maxlength="60"
         ></textarea>
       </label>
       <button class="comment-form__submit"
