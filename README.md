@@ -1,24 +1,13 @@
-# mini-blog
+# Mini blog
 
-## Project setup
-```
-npm install
-```
+## About
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+MVP mini blog
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Install
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+````
+$ git init
+$ git clone git@github.com:ArkadyKid/mini-blog.git
+$ npm install
+````
