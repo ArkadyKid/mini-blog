@@ -26,14 +26,15 @@
                      :index="index"
                      @on-submit-click="onSubmitEditorClick"
     ></app-editor-post>
-    <app-comments :comments="comments"
-                  :is-edit="isEdit"
-                  :index="index"
-                  v-if="isOpen && !isEdit"
-    ></app-comments>
-    <app-comment-form :index="index"
-                      v-if="!isEdit && isOpen"
-    ></app-comment-form>
+    <div class="post-item__comments-wrapper"
+         v-if="isOpen && !isEdit"
+    >
+      <app-comments :comments="comments"
+                    :is-edit="isEdit"
+                    :index="index"
+      ></app-comments>
+      <app-comment-form :index="index"></app-comment-form>
+    </div>
   </li>
 </template>
 
@@ -104,7 +105,7 @@ export default {
   .post-item {
     padding: 10px;
     margin-bottom: 40px;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
   }
 
   .post-item__wrapper {
@@ -115,5 +116,10 @@ export default {
 
   .post-item__post-interface {
     margin-left: auto;
+  }
+
+  .post-item__comments-wrapper {
+    border: 1px solid #000000;
+    padding: 10px;
   }
 </style>

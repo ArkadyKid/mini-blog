@@ -3,7 +3,7 @@
     <form ref="form">
       <app-input :label-text="'Заголовок'"
                  v-model="title"
-                 :max-length="15"
+                 :max-length="45"
                  :name="'title'"
                  :id="'title'"
                  :is-error="isError"
@@ -11,13 +11,13 @@
       ></app-input>
       <app-input :label-text="'Краткое описание'"
                  v-model="summary"
-                 :max-length="30"
+                 :max-length="60"
                  :name="'summary'"
                  :id="'summary'"
       ></app-input>
       <app-textarea :label-text="'Полное описание'"
                     v-model="description"
-                    :max-length="60"
+                    :max-length="160"
                     :name="'description'"
                     :id="'description'"
       ></app-textarea>

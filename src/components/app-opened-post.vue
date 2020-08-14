@@ -1,5 +1,8 @@
 <template>
   <div class="app__opened-post opened-post">
+    <span class="opened-post__description-title">
+      Полное описание
+    </span>
     <p class="opened-post__description">
       {{ description }}
     </p>
@@ -26,4 +29,7 @@ export default {
 </script>
 
 <style scoped lang="css">
+  .opened-post__description-title {
+    font-weight: bold;
+  }
 </style>

@@ -3,7 +3,7 @@
     <form>
       <app-input :label-text="'Имя'"
                  v-model="author"
-                 :max-length="15"
+                 :max-length="30"
                  :name="'comment-author'"
                  :id="'comment-author'"
       ></app-input>
