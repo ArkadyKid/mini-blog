@@ -48,7 +48,7 @@ export default {
       let reformedAuthor = this.author.trim().replace(/^ *$/g, '');
       const reformedText = this.text.trim().replace(/^ *$/g, '');
       if (reformedText) {
-        (!!reformedAuthor === false) && (reformedAuthor = 'аноним');
+        (!reformedAuthor) && (reformedAuthor = 'аноним');
         service.setCommentToLocalStorage(reformedAuthor, reformedText, this.index);
         this.author = '';
         this.text = '';
