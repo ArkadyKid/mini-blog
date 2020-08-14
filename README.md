@@ -17,3 +17,8 @@ $ npm install
 ````
 $ make start
 ````
+## Build production version
+
+````
+$ make build
+````
