@@ -53,9 +53,11 @@ export default {
   },
   methods: {
     onSubmitClick() {
-      this.text && service.setCommentToLocalStorage(this.author, this.text, this.index);
-      this.author = '';
-      this.text = '';
+      if (this.text) {
+        service.setCommentToLocalStorage(this.author, this.text, this.index);
+        this.author = '';
+        this.text = '';
+      }
     }
   }
 }

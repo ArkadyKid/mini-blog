@@ -4,8 +4,15 @@
       <label class="form__title-label"
              for="title"
       >
-        <span class="form__label-text">
-          Заголовок
+        <span class="form__text-wrapper">
+          <span class="form__label-text">
+            Заголовок
+          </span>
+          <span class="form__text-error"
+                v-if="errors.length"
+          >
+            Обязательное поле
+          </span>
         </span>
         <input class="form__title-input"
                id="title"
@@ -60,13 +67,19 @@ export default {
     title: '',
     summary: '',
     description: '',
+    errors: [],
   }),
   methods: {
     onSubmitClick() {
-      this.title && service.setFormToLocalStorage(this.title, this.summary, this.description);
-      this.title = '';
-      this.summary = '';
-      this.description = '';
+      if (this.title) {
+        service.setFormToLocalStorage(this.title, this.summary, this.description);
+        this.title = '';
+        this.summary = '';
+        this.description = '';
+        this.errors = [];
+      } else {
+        this.errors.push('ошибка');
+      }
     },
   },
 }
@@ -94,5 +107,14 @@ export default {
 
 .form__label-text {
   margin-bottom: 5px;
+}
+
+.form__text-wrapper {
+  display: flex;
+}
+
+.form__text-error {
+  color: red;
+  margin-left: 5px;
 }
 </style>
