@@ -18,24 +18,8 @@ export default {
     AppForm,
     AppPosts,
   },
-  methods: {
-    onSubmitClick() {
-      const postObject = {
-        title: this.title,
-        summary: this.summary,
-        description: this.description,
-      };
-      const localstorage = localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : [];
-      localstorage.push(postObject);
-      localStorage.setItem(`posts`, JSON.stringify(localstorage));
-      this.title = '';
-      this.description = '';
-      this.summary = '';
-    },
-  },
 }
 </script>
 
 <style scoped lang="css">
-
 </style>

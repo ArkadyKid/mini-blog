@@ -1,27 +1,23 @@
 <template>
   <div class="app__user-interface user-interface">
     <div class="user-interface__wrapper">
-      <button class="user-interface__edit-button"
-              type="button"
-              @click="onEditClick"
-      >
-        {{ buttonText }}
-      </button>
-      <button class="user-interface__delete-button"
-              type="button"
-              @click="onDeleteClick"
-      >
-        Удалить
-      </button>
+      <app-button @click="onEditClick"
+                  :text-button="buttonText"
+      ></app-button>
+      <app-button @click="onDeleteClick"
+                  :text-button="'Удалить'"
+      ></app-button>
     </div>
   </div>
 </template>
 
 <script>
 import service from '@/services/service';
+import AppButton from "@/components/ui/app-button";
 
 export default {
   name: 'app-post-interface',
+  components: {AppButton},
   props: {
     isEdit: {
       type: Boolean,
@@ -48,20 +44,8 @@ export default {
 </script>
 
 <style scoped lang="css">
-.user-interface {
-  display: flex;
-  justify-content: space-between;
-}
-
-.user-interface__edit-button,
-.user-interface__delete-button {
-  margin: 0;
-  padding: 10px;
-  width: auto;
-  cursor: pointer;
-}
-
-.user-interface__edit-button {
-  margin-right: 10px;
-}
+  .user-interface {
+    display: flex;
+    justify-content: space-between;
+  }
 </style>

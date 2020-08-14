@@ -3,6 +3,9 @@
     <p class="hidden-post__summary">
       {{ summary }}
     </p>
+    <span>
+      Количество комментариев
+    </span>
     <span class="hidden-post__comments-count">
       {{ commentsCount }}
     </span>

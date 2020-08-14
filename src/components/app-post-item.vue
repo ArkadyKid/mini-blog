@@ -29,7 +29,7 @@
     <app-comments :comments="comments"
                   :is-edit="isEdit"
                   :index="index"
-                  v-if="isOpen"
+                  v-if="isOpen && !isEdit"
     ></app-comments>
     <app-comment-form :index="index"
                       v-if="!isEdit && isOpen"

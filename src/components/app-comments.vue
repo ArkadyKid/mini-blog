@@ -9,30 +9,30 @@
           v-for="(comment, index) in comments"
           :key="index"
       >
-        <span class="comments__comment-author">
-          {{ comment.author }}
-        </span>
-        <span class="comments__comment-text">
-          {{ comment.text }}
-        </span>
-        <button class="comments__comment-delete"
-                type="button"
-                v-if="isEdit"
-                @click="onDelButtonClick(index)"
-        >
-          x
-        </button>
+        <div class="comments__wrapper">
+          <span class="comments__comment-author">
+            {{ comment.author }}
+          </span>
+          <span class="comments__comment-text">
+            {{ comment.text }}
+          </span>
+        </div>
+        <app-button :text-button="'удалить'"
+                    @click="onDelButtonClick(index)"
+                    :type="'submit'"
+        ></app-button>
       </li>
     </ul>
   </section>
 </template>
 
 <script>
-
 import service from '@/services/service';
+import AppButton from "@/components/ui/app-button";
 
 export default {
   name: 'app-comments',
+  components: {AppButton},
   props: {
     comments: {
       type: Array,
@@ -44,7 +44,7 @@ export default {
     },
     index: {
       type: Number,
-    }
+    },
   },
   methods: {
     onDelButtonClick(indexComment) {
@@ -66,16 +66,25 @@ export default {
     list-style: none;
   }
 
+  .comments__comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .comments__comment:not(:last-child) {
     margin-bottom: 5px;
   }
 
-  .comments__comment-delete {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    background: transparent;
-    cursor: pointer;
+  .comments__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }
+
+  .comments__comment-author {
+    font-style: italic;
+    margin-right: 50px;
   }
 </style>

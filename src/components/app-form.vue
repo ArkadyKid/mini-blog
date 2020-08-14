@@ -1,59 +1,30 @@
 <template>
   <div class="app-form form">
-    <form>
-      <label class="form__title-label"
-             for="title"
-      >
-        <span class="form__text-wrapper">
-          <span class="form__label-text">
-            Заголовок
-          </span>
-          <span class="form__text-error"
-                v-if="errors.length"
-          >
-            Обязательное поле
-          </span>
-        </span>
-        <input class="form__title-input"
-               id="title"
-               type="text"
-               name="title"
-               maxlength="15"
-               v-model="title"
-        >
-      </label>
-      <label class="form__summary"
-             for="summary"
-      >
-        <span class="form__label-text">
-          Краткое описание
-        </span>
-        <input id="summary"
-               type="text"
-               name="summary"
-               maxlength="30"
-               v-model="summary"
-        >
-      </label>
-      <label class="form__description"
-             for="description"
-      >
-        <span class="form__label-text">
-          Полное описание
-        </span>
-        <textarea id="description"
-                  type="text"
-                  name="description"
-                  maxlength="60"
-                  v-model="description"
-        ></textarea>
-      </label>
-      <button class="form__submit"
-              type="submit"
-              @click.prevent="onSubmitClick"
-      >
-        Опубликовать
-      </button>
+    <form ref="form">
+      <app-input :label-text="'Заголовок'"
+                 v-model="title"
+                 :max-length="15"
+                 :name="'title'"
+                 :id="'title'"
+                 :is-error="isError"
+                 :error-message="'Обязательное поле'"
+      ></app-input>
+      <app-input :label-text="'Краткое описание'"
+                 v-model="summary"
+                 :max-length="30"
+                 :name="'summary'"
+                 :id="'summary'"
+      ></app-input>
+      <app-textarea :label-text="'Полное описание'"
+                    v-model="description"
+                    :max-length="60"
+                    :name="'description'"
+                    :id="'description'"
+      ></app-textarea>
+      <app-button :text-button="'Опубликовать'"
+                  @click="onButtonClick"
+                  :type="'submit'"
+      ></app-button>
     </form>
   </div>
 </template>
@@ -61,24 +32,32 @@
 <script>
 import service from '../services/service.js';
 
+import AppButton from '@/components/ui/app-button';
+import AppInput from '@/components/ui/app-input';
+import AppTextarea from '@/components/ui/app-textarea';
+
 export default {
   name: 'app-form',
+  components: {AppTextarea, AppInput, AppButton},
   data: () => ({
     title: '',
     summary: '',
     description: '',
-    errors: [],
+    isError: false,
   }),
   methods: {
-    onSubmitClick() {
-      if (this.title) {
-        service.setFormToLocalStorage(this.title, this.summary, this.description);
+    onButtonClick() {
+      const reformedTitle = this.title.trim().replace(/^ *$/g, '');
+      const reformedSummary = this.summary.trim().replace(/^ *$/g, '');
+      const reformedDescription = this.description.trim().replace(/^ *$/g, '');
+      if (reformedTitle) {
+        service.setFormToLocalStorage(reformedTitle, reformedSummary, reformedDescription);
         this.title = '';
         this.summary = '';
         this.description = '';
-        this.errors = [];
+        this.isError = false;
       } else {
-        this.errors.push('ошибка');
+        this.isError = true;
       }
     },
   },
@@ -86,35 +65,4 @@ export default {
 </script>
 
 <style scoped lang="css">
-.form__title-label,
-.form__summary,
-.form__description {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-
-.form__submit {
-  margin: 0;
-  padding: 10px;
-  width: auto;
-  cursor: pointer;
-}
-
-.form__description textarea {
-  resize: vertical;
-}
-
-.form__label-text {
-  margin-bottom: 5px;
-}
-
-.form__text-wrapper {
-  display: flex;
-}
-
-.form__text-error {
-  color: red;
-  margin-left: 5px;
-}
 </style>
