@@ -38,7 +38,11 @@ import AppTextarea from '@/components/ui/app-textarea';
 
 export default {
   name: 'app-form',
-  components: {AppTextarea, AppInput, AppButton},
+  components: {
+    AppTextarea,
+    AppInput,
+    AppButton
+  },
   data: () => ({
     title: '',
     summary: '',

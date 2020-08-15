@@ -32,7 +32,9 @@ import AppButton from "@/components/ui/app-button";
 
 export default {
   name: 'app-comments',
-  components: {AppButton},
+  components: {
+    AppButton
+  },
   props: {
     comments: {
       type: Array,

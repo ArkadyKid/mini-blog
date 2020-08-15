@@ -32,7 +32,11 @@ import AppTextarea from "@/components/ui/app-textarea";
 
 export default {
   name: 'app-comment-form',
-  components: {AppTextarea, AppInput, AppButton},
+  components: {
+    AppTextarea,
+    AppInput,
+    AppButton
+  },
   data: () => ({
     author: '',
     text: '',

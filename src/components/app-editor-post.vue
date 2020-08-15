@@ -15,12 +15,12 @@
                  :name="'summary'"
                  :id="'summary'"
       ></app-input>
-      <app-input :label-text="'Полное описание'"
+      <app-textarea :label-text="'Полное описание'"
                  v-model="description"
                  :max-length="160"
                  :name="'description'"
                  :id="'description'"
-      ></app-input>
+      ></app-textarea>
       <app-button :text-button="'Сохранить'"
                   @click="onSubmitClick"
                   :type="'submit'"
@@ -34,10 +34,15 @@ import service from '@/services/service';
 
 import AppInput from '@/components/ui/app-input';
 import AppButton from '@/components/ui/app-button';
+import AppTextarea from '@/components/ui/app-textarea';
 
 export default {
   name: 'app-editor-post',
-  components: {AppButton, AppInput},
+  components: {
+    AppTextarea,
+    AppButton,
+    AppInput
+  },
   data: () => ({
     title: '',
     summary: '',

@@ -13,7 +13,7 @@
 
 <script>
 import service from '@/services/service';
-import AppButton from "@/components/ui/app-button";
+import AppButton from '@/components/ui/app-button';
 
 export default {
   name: 'app-post-interface',

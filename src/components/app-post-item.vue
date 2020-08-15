@@ -43,9 +43,9 @@ import AppHiddenPost from '@/components/app-hidden-post';
 import AppOpenedPost from '@/components/app-opened-post';
 import AppPostInterface from '@/components/app-post-interface';
 import AppEditorPost from '@/components/app-editor-post';
-import AppPostTitle from "@/components/app-post-title";
-import AppComments from "@/components/app-comments";
-import AppCommentForm from "@/components/app-comment-form";
+import AppPostTitle from '@/components/app-post-title';
+import AppComments from '@/components/app-comments';
+import AppCommentForm from '@/components/app-comment-form';
 
 export default {
   name: 'app-post-item',

@@ -15,10 +15,11 @@ $ npm install
 ## Run dev server
 
 ````
-$ make start
+$ npm run serve
 ````
+
 ## Build production version
 
 ````
-$ make build
+$ npm run build
 ````
