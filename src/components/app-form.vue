@@ -22,15 +22,15 @@
                     :id="'description'"
       ></app-textarea>
       <app-button :text-button="'Опубликовать'"
-                  @click="onButtonClick"
                   :type="'submit'"
+                  @click="onSubmit"
       ></app-button>
     </form>
   </div>
 </template>
 
 <script>
-import service from '../services/service.js';
+import { mapActions } from 'vuex';
 
 import AppButton from '@/components/ui/app-button';
 import AppInput from '@/components/ui/app-input';
@@ -50,12 +50,18 @@ export default {
     isError: false,
   }),
   methods: {
-    onButtonClick() {
+    ...mapActions(['SET_FORM_TO_LOCALSTORAGE']),
+    onSubmit() {
       const reformedTitle = this.title.trim().replace(/^ *$/g, '');
       const reformedSummary = this.summary.trim().replace(/^ *$/g, '');
       const reformedDescription = this.description.trim().replace(/^ *$/g, '');
-      if (reformedTitle) {
-        service.setFormToLocalStorage(reformedTitle, reformedSummary, reformedDescription);
+      const reformed = {
+        title: reformedTitle,
+        summary: reformedSummary,
+        description: reformedDescription,
+      };
+      if (reformed.title) {
+        this.SET_FORM_TO_LOCALSTORAGE(reformed);
         this.title = '';
         this.summary = '';
         this.description = '';

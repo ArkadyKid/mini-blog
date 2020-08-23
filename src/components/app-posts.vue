@@ -1,7 +1,7 @@
 <template>
   <div class="app__posts posts">
     <ul class="posts__list">
-      <app-post-item v-for="(post, index) in posts"
+      <app-post-item v-for="(post, index) in POSTS"
                      :key="index"
                      :title="post.title"
                      :summary="post.summary"
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import service from '@/services/service';
+import { mapGetters } from 'vuex';
 
 import AppPostItem from '@/components/app-post-item';
 
@@ -24,20 +24,19 @@ export default {
   components: {
     AppPostItem,
   },
-  data: () => ({
-    posts: [],
-  }),
   methods: {
     getComments(index) {
-      return this.posts[index].comments ? this.posts[index].comments : [];
+      return this.POSTS[index].comments ? this.POSTS[index].comments : [];
     },
     getCommentsCount(index) {
       return this.getComments(index).length;
     },
   },
+  computed: {
+    ...mapGetters(['POSTS']),
+  },
   mounted() {
-    service.getPostsFromLocalStorage();
-    this.posts = service.getPosts();
+    this.$store.dispatch('GET_POSTS');
   },
 }
 </script>

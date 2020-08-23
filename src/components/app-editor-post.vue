@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import service from '@/services/service';
+import { mapActions } from 'vuex';
 
 import AppInput from '@/components/ui/app-input';
 import AppButton from '@/components/ui/app-button';
@@ -63,12 +63,19 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['EDIT_POST']),
     onSubmitClick() {
       const reformedTitle = this.title.trim().replace(/^ *$/g, '');
       const reformedSummary = this.summary.trim().replace(/^ *$/g, '');
       const reformedDescription = this.description.trim().replace(/^ *$/g, '');
+      const reformedObject = {
+        title: reformedTitle,
+        summary: reformedSummary,
+        description: reformedDescription,
+        index: this.index,
+      };
       if (reformedTitle) {
-        service.editPost(this.index, reformedTitle, reformedSummary, reformedDescription);
+        this.EDIT_POST(reformedObject);
         this.isError = false;
       } else {
         this.isError = true;
@@ -77,9 +84,9 @@ export default {
     },
   },
   mounted() {
-    this.title = service.getPost(this.index).title;
-    this.summary = service.getPost(this.index).summary;
-    this.description = service.getPost(this.index).description;
+    this.title = this.$store.getters.POSTS[this.index].title;
+    this.summary = this.$store.getters.POSTS[this.index].summary;
+    this.description = this.$store.getters.POSTS[this.index].description;
   },
 }
 </script>

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import service from '@/services/service';
+import { mapActions } from 'vuex';
 import AppButton from "@/components/ui/app-button";
 
 export default {
@@ -49,8 +49,13 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['DEL_COMMENT']),
     onDelButtonClick(indexComment) {
-      service.delComment(this.index, indexComment);
+      const index = {
+        index: this.index,
+        indexComment,
+      };
+      this.DEL_COMMENT(index);
     },
   },
   computed: {

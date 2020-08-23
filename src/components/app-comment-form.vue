@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import service from '@/services/service';
+import { mapActions } from 'vuex';
 
 import AppButton from "@/components/ui/app-button";
 import AppInput from "@/components/ui/app-input";
@@ -48,12 +48,18 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['SET_COMMENT_TO_LOCAL_STORAGE']),
     onSubmitClick() {
       let reformedAuthor = this.author.trim().replace(/^ *$/g, '');
       const reformedText = this.text.trim().replace(/^ *$/g, '');
+      const reformedObject = {
+        author: reformedAuthor,
+        text: reformedText,
+        index: this.index,
+      };
       if (reformedText) {
         (!reformedAuthor) && (reformedAuthor = 'аноним');
-        service.setCommentToLocalStorage(reformedAuthor, reformedText, this.index);
+        this.SET_COMMENT_TO_LOCAL_STORAGE(reformedObject);
         this.author = '';
         this.text = '';
         this.isError = false;

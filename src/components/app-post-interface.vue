@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import service from '@/services/service';
+import { mapActions } from 'vuex';
 import AppButton from '@/components/ui/app-button';
 
 export default {
@@ -28,11 +28,12 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['DEL_POST']),
     onEditClick() {
       this.$emit('on-edit-button-click');
     },
     onDeleteClick() {
-      service.delPost(this.index);
+      this.DEL_POST(this.index);
     },
   },
   computed: {
