@@ -2,7 +2,7 @@
 
 ## About
 
-MVP mini blog on Vue.js framework
+MVP mini blog
 
 ## Install
 
