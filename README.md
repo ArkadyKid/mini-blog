@@ -2,7 +2,7 @@
 
 ## About
 
-MVP mini blog
+MVP mini blog using Vue.js, Vuex
 
 ## Install
 
